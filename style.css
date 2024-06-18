@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, #f7a8b8, #fbc2eb); /* Romantic gradient background */
+}
+
+main {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.75s ease;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.item {
+  flex: 0 0 100%;
+  height: 100%;
+  list-style-type: none;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 1rem; /* Adjusted value to move the message box higher up */
+  left: 1rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+  padding: 1.5rem; /* Increased padding for a softer look */
+  border-radius: 15px; /* Rounded corners */
+  max-width: 300px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle text shadow */
+  z-index: 2; /* Ensure content is above previews */
+  font-family: 'Arial', sans-serif; /* Elegant font */
+}
+
+.content .title {
+  font-family: 'Georgia', serif; /* Serif font for titles */
+  font-size: 1.5rem; /* Larger title font size */
+  font-weight: bold; /* Bold title text */
+  text-transform: capitalize; /* Capitalize the title text */
+  margin-bottom: 0.5rem; /* Adjusted margin */
+}
+
+.content .description {
+  font-size: 1rem; /* Increased description font size */
+  line-height: 1.4; /* Slightly increased line height for readability */
+}
+
+@media (max-width: 900px) {
+  .content .title {
+    font-size: 1.3rem; /* Adjusted font size for smaller screens */
+  }
+  .content .description {
+    font-size: 0.9rem; /* Adjusted font size for smaller screens */
+  }
+}
+
+@media (max-width: 650px) {
+  .content {
+    padding: 1rem; /* Adjusted padding for smaller screens */
+  }
+  .content .title {
+    font-size: 1.1rem; /* Adjusted font size for smaller screens */
+  }
+  .content .description {
+    font-size: 0.8rem; /* Adjusted font size for smaller screens */
+  }
+}
+
+.previews {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1; /* Ensure previews are behind content */
+  justify-content: flex-start; /* Align previews from left to right */
+  width: 80%; /* Adjusted width to fit within main container */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 0.5rem 0; /* Added padding for space around previews */
+}
+
+.preview {
+  width: 80px; /* Adjust width of each preview item */
+  height: 60px; /* Adjust height of each preview item */
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.preview:hover,
+.preview.active {
+  border: 2px solid white;
+}
